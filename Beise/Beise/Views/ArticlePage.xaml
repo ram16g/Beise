@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Beise.ViewModels"
+             xmlns:controls="clr-namespace:Beise.Controls"
+             Title="{Binding Title}"
+             x:Class="Beise.Views.ArticlePage">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="OneTemplate">
+                <ViewCell>
+                    <Label Text="11111"/>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="ThreeTemplate">
+                <ViewCell>
+                    <Label Text="3333333"/>
+                </ViewCell>
+            </DataTemplate>
+            <controls:AticleTemplateSelector x:Key="ArticleTemplateSelector"
+                OneTemplate="{StaticResource OneTemplate}"
+                ThreeTemplate="{StaticResource ThreeTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+    <CollectionView x:key="ArticleCollectionView"
+                    ItemsSource="{Binding Articles}"
+                    ItemTemplate="{StaticResource ArticleTemplateSelector}" />
+</ContentPage>
