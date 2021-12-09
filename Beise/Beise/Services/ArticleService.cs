@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Beise.Services
@@ -13,19 +12,13 @@ namespace Beise.Services
     {
 
         HttpClient httpClient;
-        JsonSerializerOptions serializerOptions;
+       
 
         public ArticleListResult Article { get; private set; }
 
         public ArticleService()
         {
             httpClient = new HttpClient();
-            serializerOptions = new JsonSerializerOptions
-            {
-                //PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-                MaxDepth = 0
-            };
         }
         
         

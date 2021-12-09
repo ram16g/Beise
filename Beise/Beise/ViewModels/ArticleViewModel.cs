@@ -26,19 +26,17 @@ namespace Beise.ViewModels
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
-
+            Items.Clear();
             try
             {
                 ArticleService articleService = new ArticleService();
                 
-                var articles = articleService.GetArticles().Result.data.list;
+                var articles = await articleService.GetArticles();
 
-                foreach(var article in articles)
+                foreach (var article in articles.data.list)
                 {
                     Items.Add(article);
                 }
-                OnPropertyChanged();
-
 
             }
             catch (Exception ex)

@@ -37,9 +37,7 @@ namespace Beise.ViewModels
             try
             {
                 ArticleService articleService = new ArticleService();
-                var articles = articleService.GetArticles();
-                
-
+                var articles = await articleService.GetArticles();
             }
             catch (Exception ex)
             {

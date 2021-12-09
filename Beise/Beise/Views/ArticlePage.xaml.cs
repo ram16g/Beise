@@ -11,7 +11,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Beise.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ArticlePage : ContentPage
     {
         ArticleViewModel _viewModel;

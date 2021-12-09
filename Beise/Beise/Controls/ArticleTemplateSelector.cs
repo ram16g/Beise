@@ -13,7 +13,8 @@ namespace Beise.Controls
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            return ((ArticleListResult.Item)item).img_info.imgs.Count > 1 ? ThreeTemplate : ThreeTemplate;
+            var articleItem = item as ArticleListResult.Item;
+            return articleItem.img_info.imgs.Count > 1 ? ThreeTemplate : ThreeTemplate;
         }
     }
 }

@@ -10,14 +10,23 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="OneTemplate">
-                <ViewCell>
-                    <Label Text="11111"/>
-                </ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding title}" WidthRequest ="100"/>
+                    <Image Source="{Binding img_info.imgs[0]}" WidthRequest="100"/>
+                    
+                </StackLayout>
+                
             </DataTemplate>
             <DataTemplate x:Key="ThreeTemplate">
-                <ViewCell>
-                    <Label Text="3333333"/>
-                </ViewCell>
+                <StackLayout>
+                    <Label Text="{Binding title}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding img_info.imgs[0]}" WidthRequest="100"/>
+                        <Image Source="{Binding img_info.imgs[1]}" WidthRequest="100"/>
+                        <Image Source="{Binding img_info.imgs[2]}" WidthRequest="100"/>
+                    </StackLayout>
+                    
+                </StackLayout>
             </DataTemplate>
             <controls:AticleTemplateSelector x:Key="ArticleTemplateSelector"
                 OneTemplate="{StaticResource OneTemplate}"
@@ -27,7 +36,11 @@
 
 
 
-    <CollectionView x:key="ArticleCollectionView"
-                    ItemsSource="{Binding Articles}"
+    <RefreshView x:DataType="local:ArticleViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView
+                    ItemsSource="{Binding Items}"
                     ItemTemplate="{StaticResource ArticleTemplateSelector}" />
+    </RefreshView>
+    
+    
 </ContentPage>
