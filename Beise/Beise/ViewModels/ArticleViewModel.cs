@@ -35,6 +35,20 @@ namespace Beise.ViewModels
 
                 foreach (var article in articles.data.list)
                 {
+                    FormattedString formatted = new FormattedString();
+                    formatted.Spans.Add(new Span
+                    {
+                        Text = "#" + article.title + "#",
+                        TextColor = Color.FromRgb(253, 156, 12)
+                    }); 
+
+                    formatted.Spans.Add(new Span
+                    {
+                        Text = article.description
+                    });
+
+                    article.formatted = formatted;
+
                     Items.Add(article);
                 }
 

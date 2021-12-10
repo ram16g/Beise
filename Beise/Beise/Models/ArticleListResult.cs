@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Beise.Models
 {
@@ -21,6 +22,7 @@ namespace Beise.Models
 
         public class Item
         {
+            public FormattedString formatted{ get; set; }
             public string title { get; set; }
             public string description { get; set; }
             public string nickname { get; set; }
