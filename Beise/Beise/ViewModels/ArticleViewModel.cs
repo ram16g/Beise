@@ -49,7 +49,7 @@ namespace Beise.ViewModels
 
                     article.formatted = formatted;
 
-                    Items.Add(article);
+                    Device.BeginInvokeOnMainThread(()=> Items.Add(article));
                 }
 
             }

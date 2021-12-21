@@ -69,7 +69,7 @@
 
 
 
-    <RefreshView x:DataType="local:ArticleViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay} ">
+    <RefreshView x:DataType="local:ArticleViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" RefreshColor="Orange">
         <CollectionView Margin="10,20,10,10"
             
 
